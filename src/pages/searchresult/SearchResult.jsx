@@ -29,14 +29,15 @@ const SearchResult = () => {
   const fetchNextPageData = () => {
     fetchDataFromApi(`/search/multi?query=${query}&page=${pageNum}`)
       .then((nextdata) => {
-        if (data?.results) {  // Means agr toh data hai phele se joh ki pichle pageNum ka hoga or tbh next page ki api call horhi hai then 
-          setData({   // Set krdo data mai
-            ...data,  // jo phele se hai voh bhi and
-            results: [...data?.results, ...nextdata?.results] // merge krdo next page ka data purane data mai (nextdata.results = means next page ka data hai)
+        if (data?.results) {  
+          // Means if already there is some data in "data" state then concat the new data else set this data in state
+          setData({   
+            ...data,  
+            results: [...data?.results, ...nextdata?.results] 
           })
         }
         else {
-          setData(nextdata)   // Means phele se kuch bhi data nhi hai toh joh results is pageNum pr api call se aye hain vhi data mai set hojaye
+          setData(nextdata)   
         }
         setPageNum((prev) => prev + 1);
       })
@@ -60,7 +61,7 @@ const SearchResult = () => {
                 {` Search ${data?.total_results > 1 ? "results" : "result"} of  '${query}' `}
               </div>
               <InfiniteScroll className='content'
-                dataLength={data?.results?.length || []} // Yeh dera hai ki ek baari mai kitni length ka data arra hai & because Initially data undefined hota hai toh empty array hoga dataLength
+                dataLength={data?.results?.length || []} // It tells how much of length the data is coming and if not then empty []
 
                 next={fetchNextPageData}  // It will take the method which fetch the result for next page
 
