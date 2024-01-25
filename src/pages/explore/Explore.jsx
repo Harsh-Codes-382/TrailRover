@@ -88,7 +88,8 @@ const Explore = () => {
             if (action.action !== "clear") {
                 let genreId = selectedItems.map((g) => g.id); // from genre array from api call of genre we are only storing the id of genre in variable genreId. So, it holds the id of genre
 
-                genreId = JSON.stringify(genreId).slice(1, -1); // because we need to pass only the id of genre & multiple genre so we made a array of genre id above e.g= "["12", "23"]" but we can't pass the array brackets so we slice it & just because we need to slice the brackets we converted the genreId array into sting and only "12", "23" is passed ino filter obj in "with_genre"
+                // we need to pass only array values not it's brackets like ["12"] to "12"
+                genreId = JSON.stringify(genreId).slice(1, -1); 
 
                 filters.with_genres = genreId;  // with_genre is a api endpoint we need the id's of genre inside it
             } else {
