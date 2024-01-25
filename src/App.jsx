@@ -15,8 +15,7 @@ import Footer from './components/footer/Footer';
 
 
 function App() {
-  // const url = useSelector((state)=> state.home.url)   // We are selecing the state we want here we selecting the url state and home is a reducer key from store.js file
-  // console.log(url);
+  
   const dispatch = useDispatch();      // We are creating an instance of useDispatch() so, now we can use dispatch variable to call the action
 
   useEffect(() => {   // Always use useEffect() to fetch api & we calling that function here
@@ -49,7 +48,7 @@ function App() {
       Promises.push(fetchDataFromApi(`/genre/${i}/list`));   // it will make a api call for both which give us the result of genres & we are pushing both functions which return Promise into an array 
     })
     const DataOfPromises = await Promise.all(Promises); // Because we stored 2 functions which return Promise into array so we getting the data from promise.all
-    // console.log(DataOfPromises);
+
     DataOfPromises.map(({ genres }) => {   // DataOfPromises is array of 2 api results with genre name so we are destructuring
       return (
         genres.map((item) => {   // now we are accessing the item of each genre
