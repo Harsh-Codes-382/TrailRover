@@ -37,14 +37,14 @@ To run the project locally, follow these steps:
    git clone https://github.com/Harsh-Codes-382/TrailRover.git
 
 2. # Install dependencies:
-    npm install
+    npm install <br>
+ ** Make sure to make public directory with your own assets e.g images etc. **
 3. # Set up TMDb API Key:
-4. # Make sure to make public directory you own with assets
 
 Obtain an API key from TMDb and replace YOUR_API_KEY in the code with your actual API key.
 
-5. # Start the development server:
-6. Open your browser and navigate to http://localhost:3000 to explore Movie Explorer.
+4. # Start the development server:
+5. Open your browser and navigate to http://localhost:3000 to explore Movie Explorer.
 
 Feel free to contribute, report issues, or suggest improvements. Happy exploring
 
